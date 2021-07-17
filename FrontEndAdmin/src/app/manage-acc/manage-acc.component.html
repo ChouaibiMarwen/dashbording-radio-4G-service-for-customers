@@ -1,0 +1,183 @@
+
+
+<div class="container">
+    <br><br><br>
+        <div class="adddiv">
+            <p>You want to create a new SubAdmin? click here </p>
+            <button type="button " class="addBtn" (click)="open(register)" style="margin-bottom: 10px;border-bottom-left-radius: 10px;border-top-right-radius: 12px;"><i class="material-icons" >group_add</i>  Add</button>
+            <br>
+        </div>   
+        <br><br><br>      
+        <div class="xx">
+            <p class="list"> <i class="material-icons" >arrow_circle_down</i>   List of Sub-Admins accounts   <i class="material-icons" >arrow_circle_down</i></p>
+            <br><br>
+            <table class="table table-bordered" style="width:40%;margin-left:4px">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th style="text-align: center;">Email</th>  
+                        <th>Phone Number</th>
+                        <th>User Name</th>
+                        <th>Password</th>
+                        <th>Opeerator</th>
+                    </tr>
+                </thead>
+                <tbody >
+                        <tr *ngFor= "let subAdmin of SubAdmins">
+                            <td>{{subAdmin.idSub}}</td>
+                            <td>{{subAdmin.firstname}}</td>
+                            <td>{{subAdmin.lastname}}</td>
+                            <td>{{subAdmin.email}}</td>
+                            <td>{{subAdmin.phonenumber}}</td>
+                            <td>{{subAdmin.username}}</td>
+                            <td>{{subAdmin.password}}</td>
+                            <td>{{subAdmin.operator}}</td>
+                            <td><button class="btn btn-warning" (click)="open(content);edit(subAdmin)" >Edit</button></td>
+                            <td><button  class="btn btn-danger" (click)="DeleteSub(subAdmin)">Delete</button></td>
+
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    
+   
+</div>
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title"></h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div>
+        <form #updateSubAdmin="ngForm"  >
+            <div class="form-group">
+                <label form="firstname">Id</label>
+                <input type="text" #id [(ngModel)]="subAdminUpdated.idSub" name="id"  class="form-control" placeholder="" readonly>
+            </div>
+            <div class="form-group">
+                <label form="firstname">First Name</label>
+                <input type="text" #firstname [(ngModel)]="subAdminUpdated.firstname" name="firstname"  class="form-control" placeholder="First Name">
+            </div>
+            <div class="form-group">
+                <label form="lastname">Last Name</label>
+                <input type="text" #lastname [(ngModel)]="subAdminUpdated.lastname" name="lastname"  class="form-control" placeholder="Last Name">
+            </div>
+            <div class="form-group">
+                <label form="email">E-mail</label>
+                <input type="text"  name="email" class="form-control" placeholder="E-mail" [(ngModel)]="subAdminUpdated.email" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" #email = "ngModel"
+                [class.is-invalid]="email.invalid && email.touched" >
+                <small class=" text-danger" [class.d-none]=" email.valid || email.untouched">Email  is required field, try to put a valid email</small>
+            </div>
+            <div class="form-group">
+                <label form="phonenumber">Phone Number</label>
+                <input type="text" #phonenumber [(ngModel)]="subAdminUpdated.phonenumber" name="phonenumber"  class="form-control" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+                <label form="username">User Name</label>
+                <input type="text"  name="username"  class="form-control" placeholder="User Name"  [(ngModel)]="subAdminUpdated.username" required #username = "ngModel"
+                [class.is-invalid]="username.invalid && username.touched" >
+                <small class=" text-danger" [class.d-none]="username.valid || username.untouched">User name is required field</small>
+            </div>
+            <div class="form-group">
+                <label form="password">Password</label>
+                <input type="text" name="password"  class="form-control" placeholder="Password" minlength="5"  [(ngModel)]="subAdminUpdated.password" required #password = "ngModel"
+                [class.is-invalid]="password.invalid && password.touched">
+                <small class=" text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
+            </div>
+            <div class="form-groupe">
+                <label form="operator" >Operator</label>
+                <select  name="operateur" [(ngModel)]="subAdminUpdated.operator" #operator= "ngModel"
+                [class.is-invalid]="operator.invalid && operator.touched" class="form-control">
+                    <option value="ooredoo" style="color: red;">Ooredoo</option>
+                    <option value="orange" style="color: rgb(218, 84, 7);">Orange</option>
+                    <option value="telecome" style="color: rgb(20, 16, 71);">Telecom</option>
+                </select>
+            </div>
+            <br>
+            <input type="submit" value="Update" class="btn btn-primary w-100">
+           
+        </form>
+    </div>
+    </div>
+   
+  </ng-template>
+
+
+
+
+  <ng-template #register let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Please, fill out this form</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="formRegister" > 
+            <form #subbAdminRegistration="ngForm" (ngSubmit)="RegisterSub()" >
+                <div class="form-group">
+                    <label form="firstname">First Name</label>
+                    <input type="text" #firstname [(ngModel)]="subAdmin.firstname" name="firstname"  class="form-control" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <label form="lastname">Last Name</label>
+                    <input type="text" #lastname [(ngModel)]="subAdmin.lastname" name="lastname"  class="form-control" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label form="email">E-mail</label>
+                    <input type="text"  name="email" class="form-control" placeholder="E-mail" [(ngModel)]="subAdmin.email" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" #email = "ngModel"
+                    [class.is-invalid]="email.invalid && email.touched" >
+                    <small class=" text-danger" [class.d-none]=" email.valid || email.untouched">Email  is required field, try to put a valid email</small>
+                </div>
+                <div class="form-group">
+                    <label form="phonenumber">Phone Number</label>
+                    <input type="text" #phonenumber [(ngModel)]="subAdmin.phonenumber" name="phonenumber"  class="form-control" placeholder="Phone Number">
+                </div>
+                <div class="form-group">
+                    <label form="username">User Name</label>
+                    <input type="text"  name="username"  class="form-control" placeholder="User Name"  [(ngModel)]="subAdmin.username" required #username = "ngModel"
+                    [class.is-invalid]="username.invalid && username.touched" >
+                    <small class=" text-danger" [class.d-none]="username.valid || username.untouched">User name is required field</small>
+                </div>
+                <div class="form-group">
+                    <label form="password">Password</label>
+                    <input type="text" name="password"  class="form-control" placeholder="Password" minlength="5" [(ngModel)]="subAdmin.password" required #password = "ngModel"
+                    [class.is-invalid]="password.invalid && password.touched">
+                    <small class=" text-danger" [class.d-none]="password.valid || password.untouched">Password is required field, it must contain at least 5 characters</small>
+                </div>
+                <div class="form-groupe">
+                    <label form="operator" >Operator</label>
+                    <select  name="operateur" [(ngModel)]="subAdmin.operator" #operator= "ngModel"
+                    [class.is-invalid]="operator.invalid && operator.touched" class="form-control">
+                        <option value="ooredoo" style="color: red;">Ooredoo</option>
+                        <option value="orange" style="color: rgb(218, 84, 7);">Orange</option>
+                        <option value="telecome" style="color: rgb(20, 16, 71);">Telecom</option>
+                    </select>
+                </div>
+                <br>
+                <input type="submit" value="Register" class="btn btn-primary w-100" (click)="c('Save click')" >
+               
+            </form>
+            <br>
+        </div>
+    </div>
+    
+  </ng-template>
+<br><br><br><br><br><br><br><br><br>
+
+
+
+<footer>
+    <div class="footer">
+        <h6>Chouaibi Marwen: Graduation project <i class="material-icons" style="margin-bottom: 12px;">copyright</i>All rights reerved 2021</h6>
+      </div>
+</footer>
+
+
+
+
+ 

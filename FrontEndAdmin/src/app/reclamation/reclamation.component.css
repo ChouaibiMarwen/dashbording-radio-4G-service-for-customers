@@ -1,0 +1,67 @@
+p{
+    color:rgba(255, 255, 255, 0.85);
+    font-size: 18px;
+
+}
+.container{
+   
+    padding-left: 50%;
+    padding-top: 15%;
+   
+}
+.td{
+    background-color: #282d31;
+    
+    
+}
+.area{
+    resize : none;
+   }
+   .date{
+       text-align: right;
+   }
+   .émitt{
+       font-weight:inherit;
+   }
+   span{
+       font-weight: bold;
+   }
+
+   footer {
+    color: #666;
+    background-color:#1c1f22;
+    bottom: 0px;
+    padding: 17px 0 18px 0;
+    border-top: 1px solid #000;
+    text-align: center;
+    width: 171.5%;
+    bottom: 0px;
+   
+    
+  }
+  footer a {
+    color: #999;
+    margin-left: 20%;
+  }
+  
+  .areaResp{
+    resize : none;
+    font-weight:bold;
+    margin-left: 3%;
+  }
+  .modal-body{
+      background-color:#1c1f22 ;
+      
+  }
+  .modal-header{
+      background-color:#23292e;
+  }
+
+  .message{
+    text-align: center;
+    margin-left: 5%;
+    background-color: #2e8b57;
+    width:  90%;
+    font-weight: bold;
+}
+ 

@@ -1,0 +1,89 @@
+
+.container{
+   width:87%;
+    margin-top: 50px;
+    margin-left: 20%; 
+
+    
+    
+}  
+.formRegister{
+    border: groove;
+    border-width:2px;
+    padding: 5px;
+    background-color: rgba(236, 229, 229, 0.85);
+   ;
+   
+}
+.registerContainer h2{
+    font-family: 'Oswald', sans-serif;
+    
+}
+
+  
+  .addBtn{
+    color:rgb(247, 247, 247);
+   
+    font-weight: bold;
+    font-size: 20px;
+    width: 20%;
+    background-color: rgb(1, 115, 150);
+    border: rgb(4, 74, 95);
+    border-width: 4px;
+    
+  }
+  .addBtn:hover{
+    background-color: rgb(255, 106, 52);
+  }
+  .adddiv{
+    text-align: center;
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 18px;
+    border: groove;  
+    border-bottom-left-radius: 13px;
+    border-top-right-radius: 15px;
+    width: 70%;
+    margin-left: 15%;
+   
+  }
+  .adddiv:hover{
+    background-color: rgb(244, 245, 250);
+  }
+  .list{
+    margin-left: 33.5%;
+    font-family: fantasy;
+    margin-top: 10px;
+    font-size: 23px;
+    text-decoration: underline;
+
+  }
+ 
+ 
+.modal-header{
+  background-color: #272c30;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+}
+label{
+  font-weight: bold;
+}
+.xx{
+  border: groove;
+  border-width: 4px;
+  margin-left: 3%;
+  width: 104%;
+  background-color: rgb(244, 245, 250);
+  padding-top: 10px;
+}
+
+.footer {
+  color: #666;
+  background-color:#1c1f22;
+  bottom: 0px;
+  padding: 17px 0 18px 0;
+  border-top: 1px solid #000;
+  text-align: center;
+  width: 113.3%;
+  bottom: 0px;
+}

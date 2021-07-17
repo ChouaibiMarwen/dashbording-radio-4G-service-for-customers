@@ -1,0 +1,165 @@
+<div class="container">
+  <br>
+  <p>Manage 4G KPIs</p>
+    <div class="kpi">
+        <h3 >Add a new 4G KPI ? click here <button type="button " class="addBtn"  (click)="open(content )"><i class="material-icons" >group_add</i>Add</button>
+        </h3> <br>
+        <h3 >Delete a KPi
+          <select name="kpiList" class="select"  [(ngModel)]="k" >
+            <option   *ngFor="let kpi of kpis" [value]="kpi.idkpi" >
+               {{kpi.kpi}} 
+            </option>
+           
+          </select>  <button type="button " class="btn btn-danger" style="width: 18%;"  (click)="DeleteKpi()"><i class="material-icons" >delete</i>Delete</button>
+
+        </h3>
+       
+    </div> 
+    <br>
+
+    <p >To create a new alert type,  click here <i class="material-icons" >shortcut</i>  <button  type="button " class="addBtn"  (click)="open( AlertType )"><i class="material-icons" >add</i> Create</button></p>
+    <br>
+
+    <p >Alert Types list <i class="material-icons" style="text-align: center;" >arrow_downward</i> </p>
+    <div >
+    <table class="table">
+      <tbody class="divType">
+        <tr *ngFor ="let type of Types">
+          <td class="tbody">
+            <button type="button" class="btn btn-outline-danger "  style="margin-left: 8px; float: right; " (click)="deletType(type)"><i class="material-icons" style="margin-bottom: 0%; padding-top: 0%;">delete</i>Delete</button>
+            <table style="margin-left: 30%;">
+              <thead>
+                <th>Number</th>
+                <th>Name</th>
+                <th>Color</th>
+              </thead>
+              <tbody style="font-weight:normal;">
+                <tr>
+                  <td>{{type.idtype}}</td>
+                  <td>{{type.name}}</td>
+                  <td>{{type.color}}</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <textarea  class ="area"name="description" cols="60" rows="4" style="resize: none; font-weight: bold;" readonly> 
+                {{type.description}}
+            </textarea>
+            <br><br><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br><br><br><br>
+  </div> 
+
+
+</div>
+
+
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">New KPI</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div>
+            <input type="text"  class="formKpi" placeholder="The new's Kpi name" name="kpiname"  [(ngModel)]="kpii.kpi"><br>
+            <button type="button " class="addBtn3"  (click)="SaveKpi()" data-dismiss="content" [routerLink]="['/alerts']"><i class="material-icons" >group_add</i>Add</button>
+    </div>
+    </div>
+   
+  </ng-template>
+
+
+  <ng-template #AlertType let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title"></h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <br>
+      <h6 class="dsc1" style="color: rgba(255, 255, 255, 0.85);"> Type's name</h6>
+      <input type="text"  name="typeName" placeholder="The name of the new Alert type"  style="width: 80%; border: inset; font-weight: bold;" [(ngModel)]="type.name"><br><br>
+      <h6 class="dsc1" style="color: rgba(255, 255, 255, 0.85);">Type's color</h6>
+      <input type="text" class ="" name="typeName" placeholder="The Color of the new Alert type"  style="width: 80%; border: inset; font-weight: bold;" [(ngModel)]="type.color"><br><br>
+     <h4>please, try to fill the discription field</h4> <br>
+     <h6 class="dsc"> choose Kpi</h6>
+      <select name="kpiList" class="se"  id="select"  [(ngModel)]= "kpiSelected" >
+        <option   *ngFor="let kpi of kpis" [value]="kpi.kpi" >
+           {{kpi.kpi}} 
+        </option>
+       
+      </select>
+    <br>
+
+      <h6 class="dsc"> And/Or (Optional) </h6>
+      <select name="kpitttttist" class="se"  id="select"  [(ngModel)]= "kpiSelected2" >
+        <option value="And" selected>And </option>
+        <option value="Or" > Or </option> 
+      </select>
+    <br>
+      <h6 class="dsc"> Choose other kpi (Optional)</h6>
+      <select name="kpiListee" class="se"  id="select"  [(ngModel)]= "kpiSelected3" >
+        <option   *ngFor="let kpi of kpis" [value]="kpi.kpi" >
+           {{kpi.kpi}} 
+        </option>
+        
+      </select>
+    <br>
+      <h6 class="dsc"> Formula</h6>
+      <select name="kpitttttist" class="se"  id="select"  [(ngModel)]= "kpiSelected4" >
+        <option value="Better than" selected>Better than </option>
+        <option value="Less than" > Less than </option> 
+        <option value="Equal to " > Equal to </option>
+        <option value="Better than or equal to" > Better than or equal to </option>
+        <option value="Less than or equal to" > Less than or equal to</option>
+      </select>
+    <br>
+      <h6 class="dsc"> Number</h6>
+      <select name="kpitttttist" class="se"  id="select"  [(ngModel)]= "kpiSelected5" >
+        <option value="0" selected>0 </option>
+        <option value="1" > 1 </option> 
+        <option value="2 " > 2 </option>
+        <option value="3 " > 3 </option>
+        <option value="4" >4</option>
+        <option value="5" > 5 </option>
+        <option value="6" > 6 </option>
+        <option value="7 " > 7</option>
+        <option value="8 " > 8</option>
+        <option value="9 " > 9 </option>
+        <option value="10 " > 10</option>
+        
+      </select>
+    <br>
+      <h6 class="dsc">  Unit</h6>
+      <select name="kpitttttist" class="se"  id="select"  [(ngModel)] = "kpiSelected6" >
+        <option value="Mb/s" selected>Mb/s </option>
+        <option value="Kb/s" > Kb/s </option> 
+        <option value="Gb/s" > Gb/s </option>
+      </select>
+    <br><br>
+      <h6 class="dsc">  The Description Field</h6>
+      <textarea  rows="4" cols="47" class="tarea2"  ng-model="descrition" >
+        {{kpiSelected}}  {{kpiSelected2}}   {{kpiSelected3}} (are/is) {{kpiSelected4}} {{kpiSelected5}} {{kpiSelected6}}
+       </textarea><br>
+       <button type="button " class="btn5" (click)="saveAlertType()" ><i class="material-icons" >add_circle_outline</i>Create</button>  
+       {{descrition}}
+    
+      </div>
+   
+  </ng-template>
+
+  <footer >
+    <div class="foo">
+      <h6>Chouaibi Marwen: Graduation project <i class="material-icons" style="margin-bottom: 12px;">copyright</i>All rights reerved 2021</h6>
+    </div>
+
+</footer>

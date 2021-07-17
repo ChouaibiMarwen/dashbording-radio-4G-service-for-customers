@@ -1,0 +1,33 @@
+
+<div class="page-container">
+    <header>
+        <app-header></app-header>
+    </header>
+    <div class="sidebar">
+
+
+        <div class="list-items">
+            <a class="list-item"  [routerLink]="['/home']">
+                <i class="material-icons">bookmark</i>Home
+                
+            </a>
+             <a class="list-item" [routerLink]="['/accounts']">
+                <i class="material-icons">manage_accounts</i>Manage Accounts
+                
+             </a>
+             <a class="list-item" [routerLink]="['/alerts']">
+                <i class="material-icons"  >notifications</i>Manage Alert Types
+                
+             </a>
+             <a class="list-item" [routerLink]="['/complaints']">
+                <i class="material-icons" >description</i>Complaints
+                
+             </a>
+
+         </div>
+         
+    </div>
+   
+    <router-outlet></router-outlet>
+    
+</div>

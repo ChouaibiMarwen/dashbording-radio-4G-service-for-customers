@@ -1,0 +1,50 @@
+<div class="animation-area">
+  <ul class="box-area">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+
+<div class="form-area">
+    <h3>Welcome</h3>
+    <br>
+    <br>
+    
+
+    <form #loginform= "ngForm" (ngSubmit)="adminLogin()">
+      <small class="text-danger"> {{msg}}</small>
+      <div class="form-group">
+       <p> User Name </p>
+        <input type="text" class="form-control"  placeholder="Enter your User Name" name="username" [(ngModel)]="admin.username" required #username = "ngModel"
+        [class.is-invalid]="username.invalid && username.touched"
+        >
+        <small class=" text-danger" [class.d-none]="username.valid || username.untouched">User name is required field</small>
+
+      </div>
+      <p></p>
+      <p></p>
+      <div class="form-group">
+        <p>Password</p>
+        <input type="password" class="form-control" placeholder="Enter your password" name="password" [(ngModel)]="admin.password" required #password = "ngModel"
+        [class.is-invalid]="password.invalid && password.touched"
+        >
+        <small class=" text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
+      </div>
+      <br>
+      <input type="submit" name="submit" value="Login" [routerLink]="['/home']">
+    </form>
+     <br>
+      <br>
+    <div  class="registrLink">
+      <h6 (click)="gotoRegisterComp()">  Sign Up  </h6>
+    </div>
+    
+  
+</div>
+
+
+  

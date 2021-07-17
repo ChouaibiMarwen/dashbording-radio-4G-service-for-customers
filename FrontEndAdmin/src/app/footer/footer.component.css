@@ -1,0 +1,14 @@
+footer {
+    color: #666;
+    background-color:#1c1f22;
+    bottom: 0px;
+    padding: 17px 0 18px 0;
+    border-top: 1px solid #000;
+    text-align: center;
+    width: 128%;
+    bottom: 0px;
+  }
+  footer a {
+    color: #999;
+  }
+  
